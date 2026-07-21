@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+ body {
+  background-color: #1e1e1e;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.game-card {
+  background: #2d2d2d;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  border: 2px solid #444;
+}
+
+.game-card:hover {
+  transform: scale(1.02);
+}
+
+.game-card img {
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+a {
+  color: #66b3ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.game-content {
+  display: flex;
+  gap: 25px;
+}
+
+.game-info {
+  flex: 1;
+}
+
+.status-filter {
+    margin: 20px 0;
+}
+
+.status-button {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 8px;
+
+    background-color: #3a3a3a;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 20px;
+
+    transition: 0.2s;
+}
+
+.status-button:hover {
+    background-color: #505050;
+}
+
+.status-button.active {
+    background-color: #7c3aed;
+    color: white;
+}

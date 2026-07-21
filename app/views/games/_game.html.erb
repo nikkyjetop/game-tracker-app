@@ -1,0 +1,29 @@
+<div class="game-card" id="<%= dom_id game %>">
+  
+  <div class="game-content">
+
+    <% if game.cover.attached? %>
+      <%= image_tag game.cover, width: 200 %>
+    <% end %>
+
+    <div class="game-info">
+      <h2>🎮 <%= game.title.upcase %></h2>
+        
+      <p>
+        🎮 Platform: <%= game.platform %><br>
+        🕹️ Genre: <%= game.genre %><br>
+        📌 Status: <%= game.status %><br>
+        ⭐ Rating: <%= game.rating %>/10
+      </p>
+
+      <p><%= game.notes %></p>
+
+      <p>
+      <%= link_to "View details", game %>
+      </p>
+      
+    </div>
+
+      
+  </div>
+</div>

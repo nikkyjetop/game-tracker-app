@@ -1,0 +1,53 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Games" %>
+
+<%= form_with url: games_path, method: :get, local: true do |form| %>
+
+  <%= form.label :search, "Search" %>
+
+  <%= form.text_field :search, value: params[:search] %>
+
+  <%= form.hidden_field :status, value: params[:status] %>
+
+  <%= form.submit "Search" %>
+
+  <%= link_to "Clear", games_path %>
+
+<% end %>
+
+<h1>Games</h1>
+
+<div class="status-filter">
+
+  <%= link_to "All",
+              games_path(search: params[:search]),
+              class: "status-button #{'active' if params[:status].blank?}" %>
+
+  <% ["Playing", "Completed", "Backlog", "Dropped"].each do |status| %>
+
+    <%= link_to status,
+                games_path(status: status, search: params[:search]),
+                class: "status-button #{'active' if params[:status] == status}" %>
+
+  <% end %>
+
+</div>
+
+<div id="games">
+
+  <% if @games.empty? %>
+
+    <p>No games found.</p>
+
+  <% else %>
+
+    <% @games.each do |game| %>
+      <%= render game %>
+    <% end %>
+
+  <% end %>
+
+</div>
+
+<%= link_to "New game", new_game_path %>
