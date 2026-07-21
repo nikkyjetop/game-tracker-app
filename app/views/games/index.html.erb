@@ -9,6 +9,7 @@
   <%= form.text_field :search, value: params[:search] %>
 
   <%= form.hidden_field :status, value: params[:status] %>
+  <%= form.hidden_field :sort, value: params[:sort] %>
 
   <%= form.submit "Search" %>
 
@@ -21,14 +22,40 @@
 <div class="status-filter">
 
   <%= link_to "All",
-              games_path(search: params[:search]),
+              games_path(
+                search: params[:search],
+                sort: params[:sort]),
               class: "status-button #{'active' if params[:status].blank?}" %>
 
   <% ["Playing", "Completed", "Backlog", "Dropped"].each do |status| %>
 
     <%= link_to status,
-                games_path(status: status, search: params[:search]),
+                games_path(
+                  status: status, 
+                  search: params[:search],
+                  sort: params[:sort]),
                 class: "status-button #{'active' if params[:status] == status}" %>
+
+  <% end %>
+
+</div>
+
+<div class="sort-filter">
+
+  <% [
+    ["Rating ↓", "rating_desc"],
+    ["Rating ↑", "rating_asc"],
+    ["Title A-Z", "title_asc"],
+    ["Title Z-A", "title_desc"]
+  ].each do |label, sort| %>
+
+    <%= link_to label,
+                games_path(
+                  sort: sort,
+                  search: params[:search],
+                  status: params[:status]
+                ),
+                class: "status-button #{'active' if params[:sort] == sort}" %>
 
   <% end %>
 

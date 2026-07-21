@@ -5,14 +5,30 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
 
+    # Search
     if params[:search].present?
       @games = @games.where("title LIKE ?", "%#{params[:search]}%")
     end
 
+    # Status filter
     if params[:status].present?
       @games = @games.where(status: params[:status])
     end
-  end
+
+    # Sorting
+    if params[:sort] == "rating_asc"
+      @games = @games.order(rating: :asc)
+
+    elsif params[:sort] == "rating_desc"
+      @games = @games.order(rating: :desc)
+
+    elsif params[:sort] == "title_asc"
+      @games = @games.order(title: :asc)
+
+    elsif params[:sort] == "title_desc"
+      @games = @games.order(title: :desc)
+    end
+end
 
   # GET /games/1 or /games/1.json
   def show
