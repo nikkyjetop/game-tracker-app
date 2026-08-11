@@ -19,6 +19,35 @@
 
 <h1>Games</h1>
 
+<div class="game-stats">
+
+  <div class="stat-card">
+    <span>Total Games</span>
+    <strong><%= @total_games %></strong>
+  </div>
+
+  <div class="stat-card">
+    <span>Playing</span>
+    <strong><%= @playing_games %></strong>
+  </div>
+
+  <div class="stat-card">
+    <span>Completed</span>
+    <strong><%= @completed_games %></strong>
+  </div>
+
+  <div class="stat-card">
+    <span>Backlog</span>
+    <strong><%= @backlog_games %></strong>
+  </div>
+
+  <div class="stat-card">
+    <span>Dropped</span>
+    <strong><%= @dropped_games %></strong>
+  </div>
+
+</div>
+
 <div class="status-filter">
 
   <%= link_to "All",

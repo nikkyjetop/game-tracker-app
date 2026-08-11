@@ -78,3 +78,32 @@ a:hover {
     background-color: #7c3aed;
     color: white;
 }
+
+.game-stats {
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    min-width: 130px;
+    padding: 16px 20px;
+
+    background-color: #2a2a2a;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-card span {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.stat-card strong {
+    font-size: 28px;
+    color: white;
+}

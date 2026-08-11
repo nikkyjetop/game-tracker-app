@@ -3,6 +3,12 @@ class GamesController < ApplicationController
 
   # GET /games or /games.json
   def index
+    @total_games = Game.count
+    @playing_games = Game.where(status: "Playing").count
+    @completed_games = Game.where(status: "Completed").count
+    @backlog_games = Game.where(status: "Backlog").count
+    @dropped_games = Game.where(status: "Dropped").count
+    
     @games = Game.all
 
     # Search
